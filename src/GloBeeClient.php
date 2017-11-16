@@ -146,7 +146,16 @@ class GloBeeClient
         return json_encode([
             'success' => true,
             'response' => 'Please redirect the user to the given URL so they can make payment',
-            'redirect_url' => $response->data->url
+            'redirect_url' => $response->data->url,
+            'passthrough_data' => $response->data->posData
         ]);
+    }
+
+    /**
+     * @param Request $request
+     */
+    public static function getPosData(Request $request)
+    {
+        return $request->get('posData');
     }
 }

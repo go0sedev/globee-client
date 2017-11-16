@@ -43,5 +43,47 @@ Array
 )
 ```
 
+## Usage Example
+To create an invoice on GloBee and receive a redirect to a payment interstitial, you can start by modifying the below code:
+```php
+    $response = json_decode(
+        GloBeeClient::createInvoice([
+            'price' => (float) $amount,
+            'currency_code' => 'USD',
+            'guid' => 'Unique Identifier',
+            'order_id' => 'Unique Order ID',
+            'description' => 'Order Description',
+            'notification_email' => 'Email address for payment notification (Client or Website Owner)',
+            'notification_url' => 'ITN Callback URL',
+            'redirect_url' => 'URL To redirect user to after payment',
+            'passthrough_data' => 'Data you want to pass through to GloBee and back, to use on the ITN page',
+            'transaction_speed' => 'high',
+            'buyer_id' => 'Buyer ID',
+            'buyer_name' => 'Buyer Name',
+            'buyer_email' => 'Buyer Email',
+        ])
+    );
+    if ( ! isset($response->success) || $response->success === false) {
+        # Invalid Response Received
+    }
+
+    if ( ! isset($response->redirect_url)) {
+        # No Redirect URL returned
+    }
+
+    # Redirect User to the redirect URL
+    return redirect($response->redirect_url);
+```
+
+### Getting the passthrough data on the ITN page
+To get the passthrough data on the ITN callback page you can use the following line, and then process the payment:
+```php
+    # Get the passthrough data sent to the notification page
+    $data = GloBeeClient::getPosData($request);
+    
+    # Identify the payment from the $data and process it
+```
+
+
 ## Feedback
 For any questions or suggestions, feel free to contact me on `gtrenwith@gmail.com`
