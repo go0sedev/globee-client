@@ -2,6 +2,9 @@
 
 namespace GustavTrenwith\GloBeeClient;
 
+use GustavTrenwith\Guid\Guid;
+use Phactor\Signature;
+
 /**
  * Class GloBeeClient
  * @package GustavTrenwith\GloBeeClient
