@@ -1,0 +1,28 @@
+{
+    "name": "gustavtrenwith/globee_client",
+    "description": "A lightweight PHP client to integrate your Laravel powered website with the GloBee payment provider",
+    "keywords": ["laravel", "gustavtrenwith", "payment", "globee", "php"],
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+          "name": "Gustav Trenwith",
+          "email": "gtrenwith@gmail.com",
+          "homepage": "https://gustavtrenwith.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+	    "laravel/framework": ">=5.5",
+        "ionux/phactor": "1.0.7",
+        "gustavtrenwith/guid": "~1.0",
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "GustavTrenwith\\GloBeeClient\\": "src/"
+        }
+    }
+}
