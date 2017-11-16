@@ -3,7 +3,7 @@
     "description": "A lightweight PHP client to integrate your Laravel powered website with the GloBee payment provider",
     "keywords": ["laravel", "gustavtrenwith", "payment", "globee", "php"],
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
         {
           "name": "Gustav Trenwith",

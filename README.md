@@ -6,7 +6,7 @@ your website.
 The following packages need to be installed on the server:
 ```bash
 php 7.1
-php7.2-bcmath
+php7.1-bcmath
 ```
 
 ## Installation with Composer

@@ -20,7 +20,7 @@ class GloBeeClient
      *
      * @param array $data Array containing the required values that will be sent to GloBee
      * @param boolean $production True if the live GloBee system is to be used, else it will hit https://test.globee.com
-     * @return string
+     * @return string Json Encoded String
      */
     public static function createInvoice($data = [], $production = false)
     {
@@ -119,10 +119,12 @@ class GloBeeClient
             'x-accept-version' => '2.0.0',
             'content-type' => 'application/x-www-form-urlencoded',
         ];
-        $response = GuzzleHelper::post($url, [
+        $client = new Client();
+        $request = $client->post($url, [
             'headers' => $headers,
             'form_params' => $body
         ]);
+        $response = $request->getBody();
         if ( ! $response) {
             return json_encode([
                 'success' => false,
