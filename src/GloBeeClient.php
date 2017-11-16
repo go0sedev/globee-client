@@ -3,6 +3,7 @@
 namespace GustavTrenwith\GloBeeClient;
 
 use GustavTrenwith\Guid\Guid;
+use GuzzleHttp\Client;
 use Phactor\Signature;
 
 /**
