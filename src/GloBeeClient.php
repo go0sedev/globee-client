@@ -99,7 +99,6 @@ class GloBeeClient
         if ($production === true) {
             $url = "https://globee.com/invoices";
         }
-        $guid = Guid::createGuid();
 
         $body = [
             'price' => (float) $data['price'],
