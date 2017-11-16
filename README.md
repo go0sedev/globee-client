@@ -1,5 +1,5 @@
 # GloBee PHP Client
-This is a lightweight library to integrate your Laravel website with your GloBee account and accept crypto payments on 
+This is a lightweight library to integrate your website with your GloBee account and accept crypto payments on 
 your website.
 
 ## Server Requirements
@@ -15,18 +15,6 @@ Run the following command in your project to add this package:
 composer require gustavtrenwith/globee_client
 ```
 Then run `composer update`.
-
-## Register Service Provider and Facade
-
-Register the service providers and Facades in `config/app.php`.
-```php
-GustavTrenwith\GloBeeClient\GloBeeClientServiceProvider::class,
-```
-```php
-'GloBeeClient' => GustavTrenwith\GloBeeClient\GloBeeClientFacade::class,
-```
-
-Now you can use the `GloBeeClient` facade anywhere in your application.
 
 ## Environment Setup
 You need to add the following to your .env file. Then you can easily disable the exception emails by changing the 
