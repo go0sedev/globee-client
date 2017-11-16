@@ -15,7 +15,7 @@
         "php": ">=7.1",
 	    "laravel/framework": ">=5.5",
         "ionux/phactor": "1.0.7",
-        "gustavtrenwith/guid": "~1.0",
+        "gustavtrenwith/guid": "~1.0"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0"
