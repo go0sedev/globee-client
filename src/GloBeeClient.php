@@ -13,9 +13,22 @@ use Phactor\Signature;
  */
 class GloBeeClient
 {
-    public static function GenerateECDSAKeys()
+    /**
+     * Returns an array containing the ECDSA keys
+     * @return mixed
+     */
+    public static function generateECDSAKeys()
     {
         return (new \Phactor\Key)->GenerateKeypair();
+    }
+
+    /**
+     * Returns the ECDSA signature
+     * @return mixed
+     */
+    public static function generateSignature($publicKeyCompressed)
+    {
+        return (new \Phactor\Sin)->Generate($publicKeyCompressed);
     }
 
     /**

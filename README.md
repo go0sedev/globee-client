@@ -28,7 +28,7 @@ ECDSA_PUBLIC_KEY_COMPRESSED=
 ## Generate ECDSA Keypair Values
 You need to use the following code to create the ECDSA Keypair Values. Once done, this code can safely be removed.
 ```php
-GloBeeClient::GenerateECDSAKeys();
+GloBeeClient::generateECDSAKeys();
 ```
 An associative array will be returned upon success:
 ```php
@@ -42,6 +42,33 @@ Array
   [public_key_y] => fb7ac7ac6959f75a6859a1a8d745db7e825a3c5c826e5b2e4950892b35772313
 )
 ```
+From the above array:
+ - Store the `private_key_hex` as the value for the `ECDSA_PRIVATE_KEY_HEX` key in the environment variable file.
+ - Store the `public_key_compressed` as the value for the `ECDSA_PUBLIC_KEY_COMPRESSED` key in the environment variable file.
+
+## Generate the ECDSA Signature
+You need to use the following code to create the ECDSA Keypair Values. Once done, this code can safely be removed.
+```php
+GloBeeClient::generateSignature(env('ECDSA_PUBLIC_KEY_COMPRESSED'));
+```
+This will return the BASE-58 encoded value beginning with the letter 'T' (specific value to SINs):
+```
+Tf61EPoJDSjbp6tGoyjbTKq7XLABPVcyUwY
+```
+- Store this string as the value for the `ECDSA_SIN` key in the environment variable file.
+
+## Authenticate with GloBee
+
+The easiest way to now link your website with GloBee, is by completing the following steps:
+1) Using an app such as POSTMAN, send a `POST` request to `globee.com/tokens` with the following query parameters:
+- label (e.g. My GloBee Client)
+- id (The ECDSA_SIN value generated in the previous step)
+- facade (e.g. merchant)
+This will respond with a new token that will include a `pairingCode`.
+2) Now go to the following URL, replacing `<pairingcode_goes_here>` with the actual pairing code:
+`globee.com/api-access-request?pairingCode=<pairingcode_goes_here>` and validate the code.
+
+You should now be linked to GloBee and able to start generating payment interstitials by following the steps in the usage example below.
 
 ## Usage Example
 To create an invoice on GloBee and receive a redirect to a payment interstitial, you can start by modifying the below code:
