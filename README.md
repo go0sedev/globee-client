@@ -17,8 +17,7 @@ composer require gustavtrenwith/globee_client
 Then run `composer update`.
 
 ## Environment Setup
-You need to add the following to your .env file. Then you can easily disable the exception emails by changing the 
-variable value to true.
+You need to add the following to your .env file. 
 ```
 ECDSA_SIN=
 ECDSA_PRIVATE_KEY_HEX=
